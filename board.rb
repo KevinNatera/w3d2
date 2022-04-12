@@ -1,5 +1,5 @@
+# require  'byebug'
 require_relative './card.rb'
-
 
 class Board
     attr_reader :grid 
@@ -24,22 +24,13 @@ class Board
         while !arr.empty?
             row_1 = rand(0...@grid.length)
             col_1 = rand(0...@grid.length)
-            pos_1 = [row_1,col_1]
 
-            p "POS 1" + "#{pos_1}"
-
-            # row_2 = rand(0...@grid.length)
-            # col_2 = rand(0...@grid.length)
-            # pos_2 = [row_2,col_2]
-
-            # p "POS 2" + "#{pos_2}"
             
             if @grid[row_1][col_1] == "_"
-                val = arr.pop.value 
-                puts "--------------------------------------------------"
-                puts "--------------------------------------------------"
-                puts "THIS IS THE VALUE #{val}"
-                @grid[row_1][col_1] = val
+                 temp = arr.pop
+                  arr.pop
+               
+                @grid[row_1][col_1] = temp
             else 
                 next
             end
