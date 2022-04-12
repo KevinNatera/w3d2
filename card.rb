@@ -1,5 +1,5 @@
 class Card
-    attr_reader :revealed, :value
+    # attr_reader :revealed, :value
     def initialize
         @revealed = false
         @value = rand(0..25)

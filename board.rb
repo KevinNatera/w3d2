@@ -38,15 +38,22 @@ class Board
 
     def render
         @grid.each_with_index do |row,idx1|
-            print "  #{idx1}"
+            print "  " if idx1 == 0
+            print "#{idx1}  "
         end
 
-        puts 
+        puts
 
         @grid.each_with_index do |row,idx1|
-            row.each_with_index do |ele,idx2|
-               puts "#{idx2}  " if idx1 == 0 
-            end
+            puts "#{idx1} " + "#{row.map{|ele| !ele.reveal ? ele.to_s : next}.join("  ")}"+" "
+            # row.each_with_index do |ele,idx2|
+            # #    puts "#{idx2}  "
+            #    if ele.reveal
+            #         puts ele.to_s  efdafaf
+            #    end
+            # end
+            # p row.map{|ele|ele.reveal ? ele.to_s : next}.join(" ")
+
         end
     end
 
@@ -57,10 +64,18 @@ class Board
        tempCard.value if tempCard.reveal
     end
 
+
+    def won?
+        return @grid.all?{|row| row.all?{|ele| !ele.reveal}}
+    end
+
 end
+
+
 
 
 b = Board.new
 
 b.populate
 b.render
+p b.won?
