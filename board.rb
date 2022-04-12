@@ -1,4 +1,4 @@
-# require  'byebug'
+require  'byebug'
 require_relative './card.rb'
 
 class Board
@@ -46,14 +46,6 @@ class Board
 
         @grid.each_with_index do |row,idx1|
             puts "#{idx1} " + "#{row.map{|ele| !ele.reveal ? ele.to_s : next}.join("  ")}"+" "
-            # row.each_with_index do |ele,idx2|
-            # #    puts "#{idx2}  "
-            #    if ele.reveal
-            #         puts ele.to_s  efdafaf
-            #    end
-            # end
-            # p row.map{|ele|ele.reveal ? ele.to_s : next}.join(" ")
-
         end
     end
 
@@ -66,7 +58,9 @@ class Board
 
 
     def won?
-        return @grid.all?{|row| row.all?{|ele| !ele.reveal}}
+        debugger
+        return @grid.all?{|row| p row.all?{|ele| p !ele.reveal}}
+        # is actually broken because of reveal
     end
 
 end
@@ -78,4 +72,4 @@ b = Board.new
 
 b.populate
 b.render
-p b.won?
+ b.won?

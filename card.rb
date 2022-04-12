@@ -17,6 +17,7 @@ class Card
          else 
             false 
          end
+         #refactor to be like hide
     end
 
     def to_s
@@ -30,13 +31,5 @@ class Card
     end
 
 
-    
 
 end
-
-#  a = Card.new
-#  p a.value
-# #  b = Card.new
-# #  p b.value 
-
-#  p a.to_s
