@@ -31,18 +31,36 @@ class Board
                   arr.pop
                
                 @grid[row_1][col_1] = temp
-            else 
-                next
             end
-            
-            print @grid
         end 
-
     end
-    
+
+
+    def render
+        @grid.each_with_index do |row,idx1|
+            print "  #{idx1}"
+        end
+
+        puts 
+
+        @grid.each_with_index do |row,idx1|
+            row.each_with_index do |ele,idx2|
+               puts "#{idx2}  " if idx1 == 0 
+            end
+        end
+    end
+
+
+    def reveal(guess_pos)
+        row,col = guess_pos 
+       tempCard = @grid[row][col]
+       tempCard.value if tempCard.reveal
+    end
+
 end
 
 
 b = Board.new
 
 b.populate
+b.render

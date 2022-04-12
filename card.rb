@@ -7,11 +7,16 @@ class Card
 
 
     def hide
-        @revealed=false if @revealed ==true
+        @revealed = false if @revealed == true
     end
 
-    def revealed
-        @revealed = true if @revealed ==false
+    def reveal
+         if @revealed == false
+            @revealed = true
+            true
+         else 
+            false 
+         end
     end
 
     def to_s
